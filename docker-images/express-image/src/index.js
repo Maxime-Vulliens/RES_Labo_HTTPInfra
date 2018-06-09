@@ -21,7 +21,7 @@ function generateStudents() {
 	for (var i=0;i<numberOfStudents;i++) {
 		var gender = chance.gender();
 		var birthYear = chance.year({min:1986,max:1996});
-		students.push({fistName:chance.first({gender: gender}),
+		students.push({firstName:chance.first({gender: gender}),
 		 lastname:chance.last(),gender:gender,birthday:chance.birthday({year: birthYear})});
 	};
 	console.log(students);
