@@ -96,7 +96,7 @@ docker run -p 8000:80 -d res/apache_php
 
 Test :
 
-![intro](/Users/Maxime/Desktop/intro.png)
+![intro](img/intro.png)
 
 Maintenant que le serveur est fonctionne, il nous reste plus qu'à trouver un thème agréable pour notre serveur. J'ai décidé d'utiliser celui-ci :
 
@@ -113,7 +113,7 @@ docker run -p 8000:80 -d res/apache_php
 
 Test :
 
-![Etape1](/Users/Maxime/Desktop/Etape1.png)
+![Etape1](img/Etape1.png)
 
 On peut maintenant déposer la première étape sur git.
 
@@ -192,7 +192,7 @@ docker run -p 9091:3000 -d res/node_js
 
 Test :
 
-![node](/Users/Maxime/Desktop/node.png)
+![node](img/node.png)
 
 ## Task3
 
@@ -266,9 +266,9 @@ docker run -p 8080:80 -d res/apache_rp
 
 Pour tester on utilise dans un premier temps telnet :
 
-![test_php](/Users/Maxime/Desktop/test_php.png)
+![test_php](img/test_php.png)
 
-![test_node](/Users/Maxime/Documents/HEIG-VD/Semestre 6/RES/Labo_infrastructure/test_node.png)
+![test_node](img/test_node.png)
 
 Modifier le fichier ```/etc/hosts```  de la machine host et ajouter la ligne 
 
@@ -331,7 +331,7 @@ Ajouter une classe au fichier index.html
 <h1 class="java-test">One Page Wonder</h1>
 ```
 
-![index](/Users/Maxime/Documents/HEIG-VD/Semestre 6/RES/Labo_infrastructure/index.png)
+![index](img/index.png)
 
 
 
@@ -368,7 +368,7 @@ Il faut stopper et redémarrer les containrs. Je le fais en leur donnan un nom c
 docker run --name static -d res/apache_php
 ```
 
-![dynamic_ref](/Users/Maxime/Desktop/dynamic_ref.png)
+![dynamic_ref](img/dynamic_ref.png)
 
 On voit bien les requêtes qui se font périodiquement ainsi que le nom qui change sur la page.
 
@@ -490,7 +490,7 @@ docker run -e STATIC_APP=172.17.0.2:80 -e DYNAMIC_APP=172.17.0.3:3000 res/apache
 
  On voir le message à la console :
 
-![ip](/Users/Maxime/Desktop/ip.png)Créer un scripte dans template nommé "config_template.php", ce script permettra de récupérer les variables d'environnement données en paramètres en lancement de l'application et ainsi de récrire le fichier 001-reverse-proxy.conf au lancement du container.
+![ip](img/ip.png)Créer un scripte dans template nommé "config_template.php", ce script permettra de récupérer les variables d'environnement données en paramètres en lancement de l'application et ainsi de récrire le fichier 001-reverse-proxy.conf au lancement du container.
 
 ```php
 <?php
@@ -592,7 +592,7 @@ docker run -d -p 8001:80 res/serveur_2
 
 => les deux containers fonctionnent.
 
-![apache_lb](/Users/Maxime/Documents/HEIG-VD/Semestre 6/RES/Labo_infrastructure/RES_Projet_Infra_DH_YA.png)
+![apache_lb](img/apache_lb.png)
 
 On peut les relance sans les lier à un port spécifique
 
@@ -696,7 +696,7 @@ docker run -p 8030:80 -d res/apache_lb
 
 A cet étape nos deux petit serveurs de démonstrations se partagent la charge. Si on désactive le cache du navigateur, on remarque que le texte change à chaque raffraichissement de la page.
 
-![load_balance](/Users/Maxime/Documents/HEIG-VD/Semestre 6/RES/Labo_infrastructure/load_balance.png)
+![load_balance](img/load_balance.png)
 
 <u>**Intégrer maintenant cette configuration au reverse proxy:**</u>
 
@@ -951,6 +951,6 @@ On voit que le cookie est délivré uniquement pour les pages statiques. On rema
 
 On peut aussi le voir à travers le navigateur : 
 
-![cookie](/Users/Maxime/Documents/HEIG-VD/Semestre 6/RES/Labo_infrastructure/cookie.png)
+![cookie](img/cookie.png)
 
 On peut modifier le cookie à la main pour s'assurer que les deux serveurs sont toujours fonctionnels.
