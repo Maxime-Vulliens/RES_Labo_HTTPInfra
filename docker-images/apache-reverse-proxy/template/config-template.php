@@ -10,7 +10,7 @@
         #CustomLog ${APACHE_LOG_DIR}/access.log combined
 
         ProxyPass '/api/students/' 'http://<?php print "$ip_dynamic";?>/'
-        ProxyPassReverse '/api/sutdents' 'http://<?php print "$ip_dynamic";?>/'
+        ProxyPassReverse '/api/sutdents/' 'http://<?php print "$ip_dynamic";?>/'
 
         ProxyPass '/' 'http://<?php print "$ip_static";?>/'
         ProxyPassReverse '/' 'http://<?php print "$ip_static";?>/'
