@@ -1,5 +1,9 @@
 
 <?php
+        // BALANCER_WORKER_ROUTE est la route du membre du groupe de répartition de charge qui sera utilisé pour la requête courante.
+        // BALANCE_ROUTE_CHANGED vaut 1 si la route de session n'est pas la même que la route 
+
+        // Récupération des adresses ips
         $ip_static = getenv('STATIC_APP');
         $ip_static2 = getenv('STATIC_APP2');
         $ip_dynamic = getenv('DYNAMIC_APP');
@@ -9,12 +13,16 @@
 <VirtualHost *:80>
         ServerName test.res.ch
 
+        
+        Header add Set-Cookie "ROUTEID=.%{BALANCER_WORKER_ROUTE}e; path=/" env=BALANCER_ROUTE_CHANGED
+
         <Proxy balancer://staticclust>
                 # Static
-                BalancerMember 'http://<?php print "$ip_static"?>'
-                BalancerMember 'http://<?php print "$ip_static2"?>'
+                BalancerMember 'http://<?php print "$ip_static"?>'  route=node1
+                BalancerMember 'http://<?php print "$ip_static2"?>' route=node2
 
                 ProxySet lbmethod=byrequests
+                ProxySet stickysession=ROUTEID
         </Proxy>
 
 
