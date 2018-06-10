@@ -23,8 +23,6 @@ export DOCKER_MACHINE_NAME="vbox-test"
 docker-machine ssh vbox-test		# pour se connecter à la machine en ssh
 ```
 
-Commande : Découvrir container
-
 Dans ce laboratoire, nous allons utiliser l'image officiel de php que l'on trouve sur docker hub à l'adresse suivante :
 
 https://hub.docker.com/_/php/
@@ -60,7 +58,7 @@ docker inspect "nom_container" | grep -i ipaddr
 docker-machine scp -r docker-images/ vbox-test:/home/docker/
 ```
 
-Dans la première étape, on va créer un simple serveur web avec une page de bienvenue accueillante que l'on aura trouve en ligne parmis les template bootstrap disponible.
+Dans la première étape, on va créer un simple serveur web avec une page de bienvenue accueillante que l'on aura trouvé en ligne parmis les templates bootstrap disponible.
 
 Dans un premier temps il faut créer l'arborescence, on créer déjà un dossier "content" avec un fichier "index.html" avec un contenu simple pour tester la fonctionnalités de notre serveur.
 
@@ -119,7 +117,7 @@ On peut maintenant déposer la première étape sur git.
 
 ## Task2
 
-Dans cette étape,  je vais créer du contenu dynamique. Pour faire cela, nous allons utiliser l'image "Node" officiel. 
+Dans cette étape,  je vais créer du contenu dynamique. Pour faire cela, je vais utiliser l'image "Node" officiel. 
 
 Créer l'arborescence pour une nouvelle image :
 
@@ -131,8 +129,8 @@ mkdir src
 
 cd src
 npm init #instancie une instance node -> remplir informaption -> crée automatiquement package
-npm install --save chance #enregisrer la dépendance
-npm install --save express #enregisrer la dépendance
+npm install --save chance #installe et enregisrer la dépendance chance
+npm install --save express #installe et enregisrer la dépendance express
 
 touch index.js
 ```
@@ -167,7 +165,8 @@ app.listen(3000, function() {
 	console.log("Accept HTTP requests");
 });
 
-// Fonction permettant de générer des étudiants avec un genre, une date d'anniversaire, un nom et un prénom. Le nombre d'étudiant créer est aléatoire entre 0 et 10.
+// Fonction permettant de générer des étudiants avec un genre, une date d'anniversaire,
+// un nom et un prénom. Le nombre d'étudiant créer est aléatoire entre 0 et 10.
 function generateStudents() {
  	var numberOfStudents = chance.integer({min:0,max:10});
 	console.log(numberOfStudents);
